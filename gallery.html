@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('rosteria-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Rösteria Café</title>
+  <meta name="description" content="A photo gallery of Rösteria Café — the space, the drinks, and the bakes.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">R</span>
+        Rösteria Café
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">&#127769;</span>
+        <span class="icon-dark">&#9728;&#65039;</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 70px 0 50px;">
+    <div class="container">
+      <p class="eyebrow">Gallery</p>
+      <h1 style="font-size: 2.4rem;">A look around Rösteria</h1>
+      <p>The space, the drinks, and the bakes — click any photo to zoom in.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="gallery-grid">
+        <figure><img src="images/rosteria-wall-sign.webp" alt="Rösteria Café wall sign with mirrors and pendant lights"></figure>
+        <figure><img src="images/rosteria-iced-matcha-cup-logo.webp" alt="Iced matcha in a branded Rösteria Café cup"></figure>
+        <figure><img src="images/interior-seating-games.webp" alt="Interior seating area with board games on the tables"></figure>
+        <figure><img src="images/counter-ambiance-lights.webp" alt="Coffee counter with pendant lighting and menu board"></figure>
+        <figure><img src="images/window-seating-tram-view.jpg" alt="Window seating with a street tram view"></figure>
+        <figure><img src="images/cappuccino-pastries-sign.webp" alt="Cappuccino, pastries, and the Rösteria sign"></figure>
+        <figure><img src="images/bakery-chocolate-loaf-case.webp" alt="Chocolate loaf cake in the bakery case"></figure>
+        <figure><img src="images/bakery-muffins-storefront.webp" alt="Muffins in the bakery display case"></figure>
+        <figure><img src="images/bakery-case-prices.webp" alt="Bakery display case with pastries and price tags"></figure>
+        <figure><img src="images/pistachio-cheesecake-slice.webp" alt="Slice of pistachio cheesecake"></figure>
+        <figure><img src="images/cheesecake-togo-raspberry.webp" alt="Cheesecake to-go with a raspberry garnish"></figure>
+        <figure><img src="images/pecan-brownie-cappuccino.webp" alt="Pecan brownie with a cappuccino"></figure>
+        <figure><img src="images/iced-matcha-croissant-table.webp" alt="Iced matcha and a croissant on a table"></figure>
+        <figure><img src="images/iced-coffee-matcha-duo.webp" alt="Iced coffee and iced matcha side by side"></figure>
+        <figure><img src="images/cheesecake-iced-mocha.webp" alt="Cheesecake slice with an iced mocha"></figure>
+        <figure><img src="images/pakora-fries-bowls.webp" alt="Bowls of onion pakora and fries"></figure>
+        <figure><img src="images/chai-pakora-tictactoe.webp" alt="Karak chai and onion pakora with a tic-tac-toe game"></figure>
+        <figure><img src="images/paratha-chai.webp" alt="Paratha flatbread with karak chai"></figure>
+        <figure><img src="images/hangout-table-games-1.webp" alt="Snacks, drinks, and cards on a table"></figure>
+        <figure><img src="images/cheesecake-matcha-tictactoe-1.webp" alt="Cheesecake, iced matcha, and a chocolate tic-tac-toe game"></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rösteria Café</h4>
+          <p>Berliner Str. 158, 03046 Cottbus<br>A neighborhood coffeehouse for coffee lovers and daydreamers alike.</p>
+          <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer" class="footer-social">Instagram &#8599;</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Fri: 7:00 – 18:00</li>
+            <li>Saturday: 7:00 – 21:00</li>
+            <li>Sunday: 7:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Rösteria Café. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('rosteria-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Rösteria Café</title>
+  <meta name="description" content="Explore Rösteria Café's menu of coffee, tea, pastries, and brunch dishes.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">R</span>
+        Rösteria Café
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">&#127769;</span>
+        <span class="icon-dark">&#9728;&#65039;</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 70px 0 50px;">
+    <div class="container">
+      <p class="eyebrow">Our Menu</p>
+      <h1 style="font-size: 2.4rem;">Coffee, matcha, chai — and something sweet to share</h1>
+      <p>All prices are listed in euros. Seasonal specials and exact weights may vary slightly, so your barista is always happy to confirm the total before you order.</p>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-category="hot-coffee">Hot Coffee</button>
+        <button class="menu-tab" data-category="iced-matcha">Iced &amp; Matcha</button>
+        <button class="menu-tab" data-category="chai-tea">Chai &amp; Tea</button>
+        <button class="menu-tab" data-category="pastries">Pastries &amp; Cakes</button>
+        <button class="menu-tab" data-category="bites">Savory Bites</button>
+      </div>
+
+      <div class="menu-category" data-category="hot-coffee">
+        <img class="menu-category-photo" src="images/counter-ambiance-lights.webp" alt="Espresso machine and coffee counter">
+        <h3>Hot Coffee</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Espresso</div>
+            <div class="menu-item-desc">Single or double shot.</div>
+          </div>
+          <div class="menu-item-price">€2.80 / €3.40</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Americano</div>
+            <div class="menu-item-desc">Espresso lengthened with hot water.</div>
+          </div>
+          <div class="menu-item-price">€3.20 / €4.10</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cortado</div>
+            <div class="menu-item-desc">Espresso cut with a splash of steamed milk.</div>
+          </div>
+          <div class="menu-item-price">€3.20 / €3.80</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Macchiato</div>
+            <div class="menu-item-desc">Espresso "marked" with a dab of foam.</div>
+          </div>
+          <div class="menu-item-price">€2.90 / €3.80</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cappuccino</div>
+            <div class="menu-item-desc">Espresso, steamed milk, thick foam and latte art.</div>
+          </div>
+          <div class="menu-item-price">€3.60 / €4.90</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Café Latte</div>
+            <div class="menu-item-desc">Espresso with steamed milk, light foam.</div>
+          </div>
+          <div class="menu-item-price">€3.60 / €4.10</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Flat White</div>
+            <div class="menu-item-desc">Double shot, micro-foamed milk.</div>
+          </div>
+          <div class="menu-item-price">€3.70 / €4.30</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mocha</div>
+            <div class="menu-item-desc">Espresso, chocolate, steamed milk.</div>
+          </div>
+          <div class="menu-item-price">€4.10 / €4.70</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Hot Chocolate</div>
+            <div class="menu-item-desc">Made with real melted chocolate.</div>
+          </div>
+          <div class="menu-item-price">€3.90</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Oat Milk</div>
+            <div class="menu-item-desc">Add to any drink.</div>
+          </div>
+          <div class="menu-item-price">+€0.50</div>
+        </div>
+      </div>
+
+      <div class="menu-category hidden" data-category="iced-matcha">
+        <img class="menu-category-photo" src="images/rosteria-iced-matcha-cup-logo.webp" alt="Iced matcha latte in a branded Rösteria cup">
+        <h3>Iced &amp; Matcha</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Matcha Latte</div>
+            <div class="menu-item-desc">Stone-ground matcha shaken with milk over ice — a house favorite.</div>
+          </div>
+          <div class="menu-item-price">€5.20</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Strawberry Matcha</div>
+            <div class="menu-item-desc">Matcha layered over strawberry.</div>
+          </div>
+          <div class="menu-item-price">€5.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Mango Matcha</div>
+            <div class="menu-item-desc">Matcha layered over mango.</div>
+          </div>
+          <div class="menu-item-price">€5.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Coconut Cloud Matcha</div>
+            <div class="menu-item-desc">Matcha with a coconut cream cloud.</div>
+          </div>
+          <div class="menu-item-price">€6.30</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Hot Matcha Latte</div>
+            <div class="menu-item-desc">Ceremonial-grade matcha, steamed milk.</div>
+          </div>
+          <div class="menu-item-price">€4.50 / €5.20</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Latte</div>
+            <div class="menu-item-desc">Espresso over milk and ice.</div>
+          </div>
+          <div class="menu-item-price">€4.20 / €4.90</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Americano</div>
+            <div class="menu-item-desc">Espresso, water, ice.</div>
+          </div>
+          <div class="menu-item-price">€3.70 / €4.30</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Cappuccino</div>
+            <div class="menu-item-desc">Cappuccino, shaken over ice.</div>
+          </div>
+          <div class="menu-item-price">€4.30</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Iced Mocha</div>
+            <div class="menu-item-desc">Espresso, chocolate, milk, ice.</div>
+          </div>
+          <div class="menu-item-price">€4.60 / €5.40</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cold Brew</div>
+            <div class="menu-item-desc">Steeped slow, smooth and low-acid.</div>
+          </div>
+          <div class="menu-item-price">Ask your barista</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Vanilla / Caramel Syrup</div>
+            <div class="menu-item-desc">Add to any hot or iced drink.</div>
+          </div>
+          <div class="menu-item-price">Ask your barista</div>
+        </div>
+      </div>
+
+      <div class="menu-category hidden" data-category="chai-tea">
+        <img class="menu-category-photo" src="images/paratha-chai.webp" alt="Karak chai served in a clay cup">
+        <h3>Chai &amp; Tea</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Karak Chai</div>
+            <div class="menu-item-desc">Strong, spiced, slow-brewed milk tea — served in a clay cup.</div>
+          </div>
+          <div class="menu-item-price">€3.10</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Tea</div>
+            <div class="menu-item-desc">Ask your barista for today's selection.</div>
+          </div>
+          <div class="menu-item-price">€2.90 / €3.90</div>
+        </div>
+      </div>
+
+      <div class="menu-category hidden" data-category="pastries">
+        <img class="menu-category-photo" src="images/bakery-case-prices.webp" alt="Bakery display case with pastries and price tags">
+        <h3>Pastries &amp; Cakes</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Pistachio Cheesecake</div>
+            <div class="menu-item-desc">Baked cheesecake topped with crushed pistachio.</div>
+          </div>
+          <div class="menu-item-price">€4.90*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Biscoff Cheesecake</div>
+            <div class="menu-item-desc">Baked cheesecake with a spiced biscuit crumble top.</div>
+          </div>
+          <div class="menu-item-price">€4.90*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Banana Bread</div>
+            <div class="menu-item-desc">Moist and buttery, baked fresh in-house.</div>
+          </div>
+          <div class="menu-item-price">€3.20*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Chocolate Brownie</div>
+            <div class="menu-item-desc">Fudgy and rich, topped with pecan.</div>
+          </div>
+          <div class="menu-item-price">€3.50*</div>
+        </div>
+      </div>
+
+      <div class="menu-category hidden" data-category="bites">
+        <img class="menu-category-photo" src="images/pakora-fries-bowls.webp" alt="Bowls of onion pakora and fries">
+        <h3>Savory Bites</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Onion Pakora</div>
+            <div class="menu-item-desc">Crispy fried onion fritters with a trio of dips.</div>
+          </div>
+          <div class="menu-item-price">€6.50*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Vegetable Samosas</div>
+            <div class="menu-item-desc">Golden pastry parcels, served with mint and mango dip.</div>
+          </div>
+          <div class="menu-item-price">€5.90*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Paratha</div>
+            <div class="menu-item-desc">Pan-fried flatbread, served with karak chai.</div>
+          </div>
+          <div class="menu-item-price">€4.50*</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Fries</div>
+            <div class="menu-item-desc">Crispy and golden, served with a dip.</div>
+          </div>
+          <div class="menu-item-price">€4.90*</div>
+        </div>
+      </div>
+
+      <p class="price-note">* Approximate pricing. Items marked with a range or "Ask your barista" vary by size or season — our team is always happy to confirm the total at the counter.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rösteria Café</h4>
+          <p>Berliner Str. 158, 03046 Cottbus<br>A neighborhood coffeehouse for coffee lovers and daydreamers alike.</p>
+          <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer" class="footer-social">Instagram &#8599;</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Fri: 7:00 – 18:00</li>
+            <li>Saturday: 7:00 – 21:00</li>
+            <li>Sunday: 7:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Rösteria Café. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

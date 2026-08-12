@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('rosteria-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Rösteria Café</title>
+  <meta name="description" content="Learn the story behind Rösteria Café, our roasting philosophy, and the team behind the counter.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">R</span>
+        Rösteria Café
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">&#127769;</span>
+        <span class="icon-dark">&#9728;&#65039;</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 70px 0 50px;">
+    <div class="container">
+      <p class="eyebrow">Our Story</p>
+      <h1 style="font-size: 2.4rem;">Matcha, coffee, and cake — made to slow you down</h1>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container about-grid">
+      <img src="images/rosteria-wall-sign.webp" alt="Rösteria Café wall sign with mirrors and pendant lights">
+      <div>
+        <p class="eyebrow">Since 2024</p>
+        <h2 style="margin: 8px 0 16px;">Where coffee meets chai</h2>
+        <p style="color: var(--color-text-muted);">
+          Rösteria Café started with a simple idea: bring specialty coffee and house-shaken matcha
+          together with the flavors of karak chai and crispy onion pakora — and give every table
+          a board game so nobody's in a rush. Today the espresso machine runs all day, the pastry
+          case never sits empty, and the chessboard by the window rarely stays free for long.
+        </p>
+        <div class="stats">
+          <div class="stat">
+            <h3 data-count="2024">0</h3>
+            <p>Founded</p>
+          </div>
+          <div class="stat">
+            <h3 data-count="15" data-suffix="+">0</h3>
+            <p>Drinks on the menu</p>
+          </div>
+          <div class="stat">
+            <h3 data-count="7">0</h3>
+            <p>Days open a week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Values</p>
+        <h2>What we care about</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon">🌱</div>
+          <h3>Sourced Responsibly</h3>
+          <p>We work directly with growers and roasters who share our standards for quality and fairness.</p>
+        </div>
+        <div class="card">
+          <div class="icon">👥</div>
+          <h3>Community First</h3>
+          <p>This is a neighborhood spot — regulars settle in for hours over chess, cards, and cheesecake.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✨</div>
+          <h3>Made Fresh Daily</h3>
+          <p>Nothing sits around. Pastries are baked each morning and coffee is brewed to order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Behind The Counter</p>
+        <h2>A closer look</h2>
+      </div>
+      <div class="gallery-strip">
+        <a href="gallery.html"><img src="images/counter-ambiance-lights.webp" alt="Coffee counter with pendant lighting and menu board"></a>
+        <a href="gallery.html"><img src="images/bakery-case-prices.webp" alt="Bakery display case with pastries and price tags"></a>
+        <a href="gallery.html"><img src="images/window-seating-tram-view.jpg" alt="Window seating with a street tram view"></a>
+        <a href="gallery.html"><img src="images/iced-matcha-croissant-table.webp" alt="Iced matcha and a croissant on a table"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta reveal">
+    <div class="container">
+      <h2>Come say hello</h2>
+      <p>We'd love to pour you a cup — and lose a round of tic-tac-toe.</p>
+      <a href="contact.html" class="btn btn-outline">Get Directions</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rösteria Café</h4>
+          <p>Berliner Str. 158, 03046 Cottbus<br>A neighborhood coffeehouse for coffee lovers and daydreamers alike.</p>
+          <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer" class="footer-social">Instagram &#8599;</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Fri: 7:00 – 18:00</li>
+            <li>Saturday: 7:00 – 21:00</li>
+            <li>Sunday: 7:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Rösteria Café. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

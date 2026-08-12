@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('rosteria-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rösteria Café — Matcha, Coffee &amp; Cake</title>
+  <meta name="description" content="Rösteria Café — small-batch coffee, house-shaken matcha, and cake, made fresh every day.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">R</span>
+        Rösteria Café
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">&#127769;</span>
+        <span class="icon-dark">&#9728;&#65039;</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero-video-hero">
+    <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true" poster="images/rosteria-wall-sign.webp">
+      <source src="videos/rosteria-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Rösteria Café · Cottbus</p>
+      <h1>Matcha. Coffee. Cake.</h1>
+      <p>Small-batch coffee, house-shaken matcha, and cake made fresh every day — in a room built for lingering.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a href="menu.html" class="btn btn-primary">View Menu</a>
+        <a href="contact.html" class="btn btn-outline" style="border-color: #fff; color: #fff;">Find Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">The Line-Up</p>
+        <h2>Three reasons to stay a while</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <img class="pillar-photo" src="images/cheesecake-matcha-muffin-tray.webp" alt="Pistachio cheesecake, iced matcha, and a muffin on a tray">
+          <h3>Matcha</h3>
+          <p>Stone-ground and shaken over ice — strawberry, mango, or coconut cloud.</p>
+          <a href="menu.html#matcha" class="pillar-link">Explore Matcha</a>
+        </div>
+        <div class="pillar">
+          <img class="pillar-photo" src="images/rosteria-wall-sign-2.webp" alt="Rösteria Café wall sign with pendant lights">
+          <h3>Coffee</h3>
+          <p>Espresso pulled to order — cappuccino, flat white, cortado, cold brew.</p>
+          <a href="menu.html#coffee" class="pillar-link">Explore Coffee</a>
+        </div>
+        <div class="pillar">
+          <img class="pillar-photo" src="images/hangout-table-games-2.webp" alt="Snacks, drinks, and cards on a table">
+          <h3>Cake</h3>
+          <p>Baked daily — pistachio and biscoff cheesecake, pecan brownie, and more.</p>
+          <a href="menu.html#cakes" class="pillar-link">Explore Cakes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="lifestyle-photo">
+        <img src="images/pakora-iced-drinks-table.webp" alt="Cozy seating area at Rösteria Café with board games on the tables">
+        <div class="lifestyle-caption">
+          <h2>A place to slow down</h2>
+          <p>Comfortable seating, warm light, and a board game on every table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta reveal">
+    <div class="container">
+      <h2>Open every day from 7am</h2>
+      <p>Mon–Fri &amp; Sun until 6pm, Saturdays until 9pm — drop by anytime.</p>
+      <a href="contact.html" class="btn btn-outline">Get Directions</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rösteria Café</h4>
+          <p>Berliner Str. 158, 03046 Cottbus<br>A neighborhood coffeehouse for coffee lovers and daydreamers alike.</p>
+          <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer" class="footer-social">Instagram &#8599;</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Fri: 7:00 – 18:00</li>
+            <li>Saturday: 7:00 – 21:00</li>
+            <li>Sunday: 7:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Rösteria Café. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

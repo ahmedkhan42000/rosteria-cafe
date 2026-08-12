@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('rosteria-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Rösteria Café</title>
+  <meta name="description" content="Find Rösteria Café's location, hours, and get in touch with the team.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">R</span>
+        Rösteria Café
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">&#127769;</span>
+        <span class="icon-dark">&#9728;&#65039;</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 70px 0 50px;">
+    <div class="container">
+      <p class="eyebrow">Get In Touch</p>
+      <h1 style="font-size: 2.4rem;">We'd love to see you</h1>
+      <p>Stop by, call ahead, or send us a message below.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2 style="margin-bottom: 8px;">Visit Us</h2>
+        <ul class="info-list">
+          <li>
+            <span class="icon">📍</span>
+            <div>
+              <strong>Address</strong><br>
+              Berliner Str. 158, 03046 Cottbus
+            </div>
+          </li>
+          <li>
+            <span class="icon">🕒</span>
+            <div>
+              <strong>Hours</strong><br>
+              Mon–Fri: 7:00 – 18:00<br>
+              Saturday: 7:00 – 21:00<br>
+              Sunday: 7:00 – 18:00
+            </div>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <div>
+              <strong>Phone</strong><br>
+              <a href="tel:+4935587650882">0355 87650882</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Email</strong><br>
+              hello@rosteriacafe.com
+            </div>
+          </li>
+          <li>
+            <span class="icon">📷</span>
+            <div>
+              <strong>Instagram</strong><br>
+              <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer">@rosteria_cafe</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="map-embed">
+          <iframe
+            src="https://maps.google.com/maps?q=Berliner+Str.+158%2C+03046+Cottbus&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            title="Map showing Rösteria Café location"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        <p class="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rösteria Café</h4>
+          <p>Berliner Str. 158, 03046 Cottbus<br>A neighborhood coffeehouse for coffee lovers and daydreamers alike.</p>
+          <a href="https://www.instagram.com/rosteria_cafe/" target="_blank" rel="noopener noreferrer" class="footer-social">Instagram &#8599;</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Fri: 7:00 – 18:00</li>
+            <li>Saturday: 7:00 – 21:00</li>
+            <li>Sunday: 7:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Rösteria Café. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
