@@ -137,15 +137,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Contact form (front-end only placeholder — wire up a real backend/email service later) -----
+  // ----- Contact form (opens a pre-filled email via mailto: — no backend required) -----
   const form = document.querySelector('#contact-form');
   const status = document.querySelector('.form-status');
+  const CONTACT_EMAIL = 'nerir26016@netiren.com';
 
   if (form && status) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const name = document.querySelector('#name').value.trim();
+      const email = document.querySelector('#email').value.trim();
+      const message = document.querySelector('#message').value.trim();
+
+      const subject = encodeURIComponent(`New message from ${name} via Rösteria Café website`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
       status.style.display = 'block';
-      status.textContent = 'Thanks! Your message has been noted (demo only — connect a backend to actually send it).';
+      status.textContent = 'Opening your email app to send this message...';
       form.reset();
     });
   }
