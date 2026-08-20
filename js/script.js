@@ -23,6 +23,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ----- Pinned hero video: scales up and loses its rounded corners as you scroll past it -----
+  const heroPin = document.querySelector('#hero-pin');
+  const heroMedia = document.querySelector('#hero-media-scale');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroPin && heroMedia && !reduceMotion) {
+    const isNarrow = () => window.innerWidth <= 720;
+    let ticking = false;
+
+    const updateHeroScale = () => {
+      const rect = heroPin.getBoundingClientRect();
+      const minScale = isNarrow() ? 0.92 : 0.86;
+      const maxRadius = isNarrow() ? 20 : 32;
+      const scrollable = rect.height - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 0;
+
+      heroMedia.style.transform = `scale(${minScale + (1 - minScale) * progress})`;
+      heroMedia.style.borderRadius = `${maxRadius * (1 - progress)}px`;
+      ticking = false;
+    };
+
+    const requestHeroUpdate = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateHeroScale);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestHeroUpdate, { passive: true });
+    window.addEventListener('resize', requestHeroUpdate);
+    updateHeroScale();
+  }
+
+  // ----- Staggered word reveal for headings marked [data-stagger] -----
+  const staggerEls = document.querySelectorAll('[data-stagger]');
+
+  staggerEls.forEach((el) => {
+    const words = el.textContent.split(' ');
+    el.textContent = '';
+    words.forEach((word, i) => {
+      if (i > 0) el.appendChild(document.createTextNode(' '));
+      const span = document.createElement('span');
+      span.className = 'word';
+      span.textContent = word;
+      span.style.transitionDelay = `${i * 60}ms`;
+      el.appendChild(span);
+    });
+  });
+
+  if (staggerEls.length) {
+    if ('IntersectionObserver' in window) {
+      const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      staggerEls.forEach((el) => staggerObserver.observe(el));
+    } else {
+      staggerEls.forEach((el) => el.classList.add('is-visible'));
+    }
+  }
+
   // ----- Scroll reveal animations -----
   const revealEls = document.querySelectorAll('.reveal');
 

@@ -41,42 +41,46 @@
     </nav>
   </header>
 
-  <section class="hero-video-hero">
-    <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true" poster="images/rosteria-wall-sign.webp">
-      <source src="videos/rosteria-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrim"></div>
-    <div class="container hero-content">
-      <p class="eyebrow">Rösteria Café · Cottbus</p>
-      <h1>Matcha. Coffee. Cake.</h1>
-      <p>Small-batch coffee, house-shaken matcha, and cake made fresh every day — in a room built for lingering.</p>
-      <div class="hero-actions" style="justify-content: center;">
-        <a href="menu.html" class="btn btn-primary">View Menu</a>
-        <a href="contact.html" class="btn btn-outline" style="border-color: #fff; color: #fff;">Find Us</a>
+  <section class="hero-pin" id="hero-pin">
+    <div class="hero-pin-inner hero-video-hero">
+      <div class="hero-media-scale" id="hero-media-scale">
+        <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true" poster="images/rosteria-wall-sign.webp">
+          <source src="videos/rosteria-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow">Rösteria Café · Cottbus</p>
+        <h1 data-stagger>Matcha. Coffee. Cake.</h1>
+        <p>Small-batch coffee, house-shaken matcha, and cake made fresh every day — in a room built for lingering.</p>
+        <div class="hero-actions" style="justify-content: center;">
+          <a href="menu.html" class="btn btn-primary">View Menu</a>
+          <a href="contact.html" class="btn btn-outline" style="border-color: #fff; color: #fff;">Find Us</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
+  <section class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow">The Line-Up</p>
-        <h2>Three reasons to stay a while</h2>
+        <h2 data-stagger>Three reasons to stay a while</h2>
       </div>
       <div class="pillars">
-        <div class="pillar">
+        <div class="pillar reveal">
           <img class="pillar-photo" src="images/cheesecake-matcha-muffin-tray.webp" alt="Pistachio cheesecake, iced matcha, and a muffin on a tray">
           <h3>Matcha</h3>
           <p>Stone-ground and shaken over ice — strawberry, mango, or coconut cloud.</p>
           <a href="menu.html#matcha" class="pillar-link">Explore Matcha</a>
         </div>
-        <div class="pillar">
+        <div class="pillar reveal">
           <img class="pillar-photo" src="images/rosteria-wall-sign-2.webp" alt="Rösteria Café wall sign with pendant lights">
           <h3>Coffee</h3>
           <p>Espresso pulled to order — cappuccino, flat white, cortado, cold brew.</p>
           <a href="menu.html#coffee" class="pillar-link">Explore Coffee</a>
         </div>
-        <div class="pillar">
+        <div class="pillar reveal">
           <img class="pillar-photo" src="images/hangout-table-games-2.webp" alt="Snacks, drinks, and cards on a table">
           <h3>Cake</h3>
           <p>Baked daily — pistachio and biscoff cheesecake, pecan brownie, and more.</p>
