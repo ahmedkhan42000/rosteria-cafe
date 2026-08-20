@@ -32,8 +32,8 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <span class="icon-light">&#127769;</span>
-        <span class="icon-dark">&#9728;&#65039;</span>
+        <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg></span>
+        <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
       </button>
       <button class="nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -44,7 +44,7 @@
   <section class="hero" style="padding: 70px 0 50px;">
     <div class="container">
       <p class="eyebrow">Our Story</p>
-      <h1 style="font-size: 2.4rem;">Where the coffee's hot and the hours are slow</h1>
+      <h1 style="font-size: 2.4rem;" data-stagger>Where the coffee's hot and the hours are slow</h1>
     </div>
   </section>
 
@@ -53,7 +53,7 @@
       <img src="images/rosteria-wall-sign.webp" alt="Rösteria Café wall sign with mirrors and pendant lights">
       <div>
         <p class="eyebrow">Since 2026</p>
-        <h2 style="margin: 8px 0 16px;">Where coffee meets chai</h2>
+        <h2 style="margin: 8px 0 16px;" data-stagger>Where coffee meets chai</h2>
         <p style="color: var(--color-text-muted);">
           Rösteria Café started with a simple idea: bring specialty coffee and house-shaken matcha
           together with the flavors of karak chai and crispy onion pakora — and give every table
@@ -82,21 +82,21 @@
     <div class="container">
       <div class="section-header">
         <p class="eyebrow">Our Values</p>
-        <h2>What we care about</h2>
+        <h2 data-stagger>What we care about</h2>
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="icon">🌱</div>
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-9h7v7c0 5-4 9-9 9Z"/><path d="M4 20 15 9"/></svg></div>
           <h3>Sourced Responsibly</h3>
           <p>We work directly with growers and roasters who share our standards for quality and fairness.</p>
         </div>
         <div class="card">
-          <div class="icon">👥</div>
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3>Community First</h3>
           <p>This is a neighborhood spot — regulars settle in for hours over chess, cards, and cheesecake.</p>
         </div>
         <div class="card">
-          <div class="icon">✨</div>
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 3.6 2.4 5.4 6 6-3.6.6-5.4 2.4-6 6-.6-3.6-2.4-5.4-6-6 3.6-.6 5.4-2.4 6-6Z"/><path d="M19 14c.3 1.8 1.2 2.7 3 3-1.8.3-2.7 1.2-3 3-.3-1.8-1.2-2.7-3-3 1.8-.3 2.7-1.2 3-3Z"/></svg></div>
           <h3>Made Fresh Daily</h3>
           <p>Nothing sits around. Pastries are baked each morning and coffee is brewed to order.</p>
         </div>
@@ -108,7 +108,7 @@
     <div class="container">
       <div class="section-header">
         <p class="eyebrow">Behind The Counter</p>
-        <h2>A closer look</h2>
+        <h2 data-stagger>A closer look</h2>
       </div>
       <div class="gallery-strip">
         <a href="gallery.html"><img src="images/counter-ambiance-lights.webp" alt="Coffee counter with pendant lighting and menu board"></a>
@@ -119,15 +119,15 @@
     </div>
   </section>
 
-  <section class="cta reveal">
+  <section class="cta reveal reveal-3d">
     <div class="container">
-      <h2>Come say hello</h2>
+      <h2 data-stagger>Come say hello</h2>
       <p>We'd love to pour you a cup — and lose a round of tic-tac-toe.</p>
       <a href="contact.html" class="btn btn-outline">Get Directions</a>
     </div>
   </section>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="container">
       <div class="footer-grid">
         <div>

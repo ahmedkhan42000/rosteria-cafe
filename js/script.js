@@ -56,6 +56,108 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeroScale();
   }
 
+  // ----- Hero content: subtle 3D tilt that follows the cursor -----
+  const heroContent = document.querySelector('#hero-pin .hero-content');
+
+  if (heroContent) {
+    if (reduceMotion) {
+      heroContent.classList.add('is-loaded');
+    } else {
+      requestAnimationFrame(() => requestAnimationFrame(() => heroContent.classList.add('is-loaded')));
+    }
+  }
+
+  if (heroPin && heroContent && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    const maxHeroTilt = 4;
+
+    heroPin.addEventListener('mousemove', (e) => {
+      const rect = heroPin.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      heroContent.style.transform = `rotateX(${(-py * maxHeroTilt).toFixed(2)}deg) rotateY(${(px * maxHeroTilt).toFixed(2)}deg)`;
+    });
+
+    heroPin.addEventListener('mouseleave', () => {
+      heroContent.style.transform = '';
+    });
+  }
+
+  // ----- Dimensional tilt for card grids (pillars, feature cards) -----
+  const setupTiltCards = (selector, { maxTilt = 8, stagger = 140 } = {}) => {
+    const cards = document.querySelectorAll(selector);
+    if (!cards.length || reduceMotion) return;
+
+    const canHover = window.matchMedia('(hover: hover)').matches;
+
+    // Re-arm the entrance stagger delay every time a card scrolls back into view,
+    // then drop it to 0 once the reveal transition finishes so hover stays snappy.
+    if ('IntersectionObserver' in window) {
+      const delayObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const card = entry.target;
+          const i = Array.prototype.indexOf.call(cards, card);
+          if (entry.isIntersecting) {
+            card.style.transitionDelay = `${i * stagger}ms`;
+            card.addEventListener('transitionend', () => {
+              card.style.transitionDelay = '0ms';
+            }, { once: true });
+          }
+        });
+      }, { threshold: 0.15 });
+
+      cards.forEach((card) => delayObserver.observe(card));
+    } else {
+      cards.forEach((card, i) => { card.style.transitionDelay = `${i * stagger}ms`; });
+    }
+
+    if (!canHover) return;
+
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `rotateX(${(-py * maxTilt).toFixed(2)}deg) rotateY(${(px * maxTilt).toFixed(2)}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  };
+
+  setupTiltCards('.pillars .pillar', { maxTilt: 8, stagger: 140 });
+  setupTiltCards('.grid-3 .card', { maxTilt: 6, stagger: 120 });
+
+  // ----- Lifestyle photo: image and caption drift at different speeds while scrolling -----
+  const lifestylePhoto = document.querySelector('.lifestyle-photo');
+  const lifestyleImg = lifestylePhoto ? lifestylePhoto.querySelector('img') : null;
+  const lifestyleCaption = lifestylePhoto ? lifestylePhoto.querySelector('.lifestyle-caption') : null;
+
+  if (lifestylePhoto && lifestyleImg && lifestyleCaption && !reduceMotion) {
+    let lifestyleTicking = false;
+
+    const updateLifestyleParallax = () => {
+      const rect = lifestylePhoto.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      const shift = Math.max(-24, Math.min(24, center * -0.06));
+      lifestyleImg.style.transform = `scale(1.15) translateY(${shift}px)`;
+      lifestyleCaption.style.transform = `translateY(${(-shift * 0.5).toFixed(1)}px)`;
+      lifestyleTicking = false;
+    };
+
+    const requestLifestyleUpdate = () => {
+      if (!lifestyleTicking) {
+        requestAnimationFrame(updateLifestyleParallax);
+        lifestyleTicking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestLifestyleUpdate, { passive: true });
+    window.addEventListener('resize', requestLifestyleUpdate);
+    updateLifestyleParallax();
+  }
+
   // ----- Staggered word reveal for headings marked [data-stagger] -----
   const staggerEls = document.querySelectorAll('[data-stagger]');
 
@@ -76,10 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('IntersectionObserver' in window) {
       const staggerObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            staggerObserver.unobserve(entry.target);
-          }
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
       }, { threshold: 0.4 });
 
@@ -89,17 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ----- Scroll reveal animations -----
+  // ----- Scroll reveal animations (replays every time an element scrolls back into view) -----
   const revealEls = document.querySelectorAll('.reveal');
 
   if (revealEls.length) {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
       }, { threshold: 0.15 });
 
