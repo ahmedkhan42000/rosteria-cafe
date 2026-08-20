@@ -794,6 +794,13 @@ input:focus, textarea:focus {
   color: #a4907a;
 }
 
+.footer-credit {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: #8a765f;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
   .grid-3 { grid-template-columns: 1fr; }
